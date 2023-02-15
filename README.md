@@ -1,5 +1,7 @@
 # Linguagem de Programação I
 
+Os códigos deste repositório foram melhorados pelo ChatGPT.
+
 _Ementa_
 
 - Introdução à linguagem procedural:
@@ -40,6 +42,3 @@ _Ementa_
   - Conceitos básicos de documentação de código;
   - Metodologias de desenvolvimento de software;
   - Práticas recomendadas de documentação e desenvolvimento de código.
-
-
-Os códigos deste repositório foram melhorados pelo ChatGPT.
