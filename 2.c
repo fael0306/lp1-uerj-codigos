@@ -1,66 +1,142 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include <string.h>
-#include <ctype.h>
 
-#define MAX_PALAVRAS 10
-#define MAX_TAMANHO 100
+#define TAM1 40
+#define TAM2 60
 
-void converte_minuscula(char * str) {
-  int i = 0;
-  while (str[i]) {
-    str[i] = tolower(str[i]);
-    i++;
-  }
-}
+int main(int argc, char * argv[]) {
+  setlocale(LC_ALL, "portuguese");
 
-int main() {
-  char frase[MAX_TAMANHO];
-  char * palavras[MAX_PALAVRAS];
-  char * aux;
-  int i, j, n_palavras;
+  const char * nomes1[TAM1] = {
+    "Adalberto",
+    "Adriano",
+    "Bernardo",
+    "Bianca",
+    "Carla",
+    "Carlos",
+    "Diego",
+    "Diogo",
+    "Eduardo",
+    "Elvira",
+    "Fagundes",
+    "Fernandes",
+    "Gabriel",
+    "Gilberto",
+    "Helio",
+    "Humberto",
+    "Isabel",
+    "Isaias",
+    "Jonas",
+    "Judite",
+    "Karla",
+    "Kevin",
+    "Laercio",
+    "Leandro",
+    "Marielle",
+    "Martins",
+    "Natan",
+    "Norberto",
+    "Osvaldo",
+    "Oswaldo",
+    "Paloma",
+    "Pedro",
+    "Quintilo",
+    "Quirino",
+    "Rafael",
+    "Rodrigo",
+    "Sabrina",
+    "Suelen",
+    "Tobias",
+    "Tito"
+  };
+  const char * nomes2[TAM2] = {
+    "Abigail",
+    "Adalberto",
+    "Adriano",
+    "Barcelos",
+    "Bernardo",
+    "Bianca",
+    "Carla",
+    "Carlos",
+    "Cassiano",
+    "Dario",
+    "Diego",
+    "Diogo",
+    "Eduardo",
+    "Elvira",
+    "Everton",
+    "Fabio",
+    "Fagundes",
+    "Fernandes",
+    "Gabriel",
+    "Gilberto",
+    "Giovani",
+    "Helio",
+    "Holavio",
+    "Humberto",
+    "Isabel",
+    "Isabella",
+    "Isaias",
+    "Jacob",
+    "Jonas",
+    "Judite",
+    "Karla",
+    "Kevin",
+    "Kezia",
+    "Laercio",
+    "Leandro",
+    "Leonardo",
+    "Maria",
+    "Marielle",
+    "Martins",
+    "Natan",
+    "Norberto",
+    "Nicole",
+    "Olivia",
+    "Osvaldo",
+    "Oswaldo",
+    "Paloma",
+    "Paulo",
+    "Pedro",
+    "Quincas",
+    "Quintilo",
+    "Quirino",
+    "Rafael",
+    "Ramon",
+    "Rodrigo",
+    "Sabrina",
+    "Saulo",
+    "Suelen",
+    "Thomas",
+    "Tito",
+    "Tobias"
+  };
 
-  printf("Digite uma frase (máximo %d palavras): ", MAX_PALAVRAS);
-  fgets(frase, MAX_TAMANHO, stdin);
+  const char * nomestotal[TAM1];
+  int k, j, t = 0;
 
-  // Verifica se a entrada é maior do que o tamanho máximo permitido
-  if (strlen(frase) == MAX_TAMANHO - 1 && frase[MAX_TAMANHO - 2] != '\n') {
-    printf("A entrada é muito longa. Por favor, tente novamente.\n");
-    return 1;
-  }
-
-  // Remove os caracteres de pontuação da entrada
-  for (i = 0; i < strlen(frase); i++) {
-    if (!isalpha(frase[i])) {
-      frase[i] = ' ';
-    }
-  }
-
-  converte_minuscula(frase);
-
-  // Separa as palavras
-  n_palavras = 0;
-  aux = strtok(frase, " ");
-  while (aux != NULL && n_palavras < MAX_PALAVRAS) {
-    palavras[n_palavras++] = aux;
-    aux = strtok(NULL, " ");
-  }
-
-  // Ordena as palavras em ordem alfabética
-  for (i = 0; i < n_palavras; i++) {
-    for (j = i + 1; j < n_palavras; j++) {
-      if (strcmp(palavras[i], palavras[j]) > 0) {
-        aux = palavras[i];
-        palavras[i] = palavras[j];
-        palavras[j] = aux;
+  for (k = 0; k < TAM1; k++) {
+    t = 0;
+    for (j = 0; j < TAM2; j++) {
+      if (strcmp(nomes1[k], nomes2[j]) == 0) {
+        t = 1;
+        break;
       }
     }
+    if (t == 1) {
+      nomestotal[k] = nomes1[k];
+    } else {
+      nomestotal[k] = NULL;
+    }
   }
 
-  // Imprime as palavras em ordem alfabética
-  printf("\nPalavras em ordem alfabética:\n");
-  for (i = 0; i < n_palavras; i++) {
-    printf("%s\n", palavras[i]);
+  printf("Nomes em ambas as listas:\n");
+  for (k = 0; k < TAM1; k++) {
+    if (nomestotal[k] != NULL) {
+      printf("%s\n", nomestotal[k]);
+    }
   }
 
   return 0;
