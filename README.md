@@ -1,6 +1,6 @@
 # Linguagem de Programação I
 
-Os códigos deste repositório foram melhorados pelo ChatGPT.
+Os códigos deste repositório foram refatorados pelo ChatGPT.
 
 _Ementa_
 
