@@ -2,8 +2,6 @@
 
 Repositório criado com o objetivo de guardar os códigos escritos durante o curso de Linguagem de Programação I do professor Rubens Cirino na UERJ.
 
-Os códigos deste repositório foram refatorados pelo ChatGPT.
-
 _Ementa_
 
 - Introdução à linguagem procedural:
